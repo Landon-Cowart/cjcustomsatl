@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CJcustomsATL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="star">★</span> CJcustomsATL
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="index.html#location" class="nav-link">Location</a></li>
+                    <li><a href="contact.html" class="nav-link cta-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h1 class="contact-title">Get in Touch</h1>
+            <p class="contact-subtitle">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Your full name"
+                            required
+                        >
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com"
+                            required
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="(123) 456-7890"
+                            required
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            placeholder="What is this regarding?"
+                            required
+                        >
+                        <span class="error-message" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Tell us more about your inquiry..."
+                            rows="6"
+                            required
+                        ></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <!-- CAPTCHA Protection -->
+                    <div class="form-group captcha-group">
+                        <label for="captcha">Security Check: What number comes after 3? *</label>
+                        <input 
+                            type="text" 
+                            id="captcha" 
+                            name="captcha" 
+                            placeholder="Enter the number"
+                            required
+                        >
+                        <span class="error-message" id="captchaError"></span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input 
+                                type="checkbox" 
+                                id="agreeTerms" 
+                                name="agreeTerms" 
+                                required
+                            >
+                            I agree to be contacted by CJcustomsATL
+                        </label>
+                        <span class="error-message" id="agreeError"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                    <span class="error-message" id="formError"></span>
+                    <span class="success-message" id="formSuccess"></span>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 CJcustomsATL. All rights reserved. | McDonough, GA</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
