@@ -20,11 +20,12 @@ html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #FF0000 !important; /* Override all other color settings */
+  background-color: var(--bg-color);
 }
 .header-image {
   width: 100%;
