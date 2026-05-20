@@ -1,611 +1,259 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #d4af37;
-    --secondary-color: #1a1a1a;
-    --text-color: #ffffff;
-    --light-text: #cccccc;
-    --bg-color: #0a0a0a;
-    --white: #ffffff;
-    --error-color: #e74c3c;
-    --success-color: #27ae60;
-    --border-color: #333333;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ===== NAVIGATION ===== */
-.navbar {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* ===== LOGO ===== */
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.logo-link:hover {
-    transform: scale(1.05);
-}
-
-.logo-image {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-link {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 500;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary-color);
-}
-
-.cta-link {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.cta-link:hover {
-    background-color: #e5c158;
-    transform: translateY(-2px);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--white);
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #0f0f0f 100%);
-    color: var(--white);
-    padding: 120px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    animation: fadeInUp 0.8s ease;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.star {
-    color: var(--primary-color);
-}
-
-.star.large {
-    font-size: 3.5rem;
-    animation: twinkle 2s ease-in-out infinite;
-}
-
-.hero-subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    color: var(--light-text);
-}
-
-/* ===== BUTTONS ===== */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-.btn-primary:hover {
-    background-color: #e5c158;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-}
-
-.btn-large {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    width: 100%;
-}
-
-/* ===== SECTIONS ===== */
-section {
-    padding: 80px 0;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-}
-
-/* ===== ABOUT SECTION ===== */
-.about {
-    background-color: var(--secondary-color);
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    color: var(--light-text);
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.stat {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f1419 100%);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    border: 1px solid var(--border-color);
-}
-
-.stat:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-}
-
-.stat h3 {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.stat p {
-    color: var(--light-text);
-}
-
-/* ===== SERVICES SECTION ===== */
-.services {
-    background: var(--bg-color);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.service-card {
-    background-color: var(--secondary-color);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-color);
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
-    border-color: var(--primary-color);
-}
-
-.service-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-.service-card p {
-    color: var(--light-text);
-    line-height: 1.6;
-}
-
-/* ===== LOCATION SECTION ===== */
-.location {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    text-align: center;
-}
-
-.location-info h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.location-info p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--light-text);
-}
-
-.location-details {
-    background: rgba(212, 175, 55, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-    border: 1px solid var(--primary-color);
-}
-
-.location-details p {
-    margin-bottom: 0.5rem;
-}
-
-/* ===== CONTACT SECTION ===== */
-.contact-section {
-    padding: 80px 0;
-    background: var(--bg-color);
-    min-height: 100vh;
-}
-
-.contact-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.contact-subtitle {
-    text-align: center;
-    color: var(--light-text);
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
-}
-
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--secondary-color);
-    padding: 3rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--border-color);
-}
-
-/* ===== FORM STYLES ===== */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--white);
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 0.75rem;
-    border: 2px solid var(--border-color);
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    background-color: #0f0f0f;
-    color: var(--white);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #666;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-}
-
-.form-group input.error,
-.form-group textarea.error {
-    border-color: var(--error-color);
-}
-
-.error-message {
-    color: var(--error-color);
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    min-height: 1.2rem;
-}
-
-.success-message {
-    color: var(--success-color);
-    font-size: 0.95rem;
-    text-align: center;
-    padding: 1rem;
-    background-color: rgba(39, 174, 96, 0.1);
-    border-radius: 5px;
-    display: none;
-    border: 1px solid var(--success-color);
-}
-
-.success-message.show {
-    display: block;
-    animation: slideDown 0.3s ease;
-}
-
-.captcha-group {
-    background-color: #0f0f0f;
-    padding: 1rem;
-    border-radius: 5px;
-    border-left: 4px solid var(--primary-color);
-}
-
-.checkbox-group {
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.checkbox-group label {
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    color: var(--light-text);
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    accent-color: var(--primary-color);
-}
-
-/* ===== FOOTER ===== */
-.footer {
-    background-color: #000000;
-    color: var(--white);
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid var(--border-color);
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+// ===== FORM VALIDATION & BOT PROTECTION =====
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm()) {
+            showSuccessMessage();
+            contactForm.reset();
+            
+            console.log('Form submitted successfully!');
+            console.log({
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            });
+        }
+    });
+
+    // Auto-format phone number
+    document.getElementById('phone').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 0) {
+            if (value.length <= 3) {
+                e.target.value = value;
+            } else if (value.length <= 6) {
+                e.target.value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+            } else {
+                e.target.value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10);
+            }
+        }
+    });
+}
+
+function validateForm() {
+    let isValid = true;
+    clearAllErrors();
+
+    // Name validation
+    const name = document.getElementById('name').value.trim();
+    if (!name) {
+        showError('nameError', 'Name is required');
+        isValid = false;
+    } else if (name.length < 2) {
+        showError('nameError', 'Name must be at least 2 characters');
+        isValid = false;
+    } else if (detectSpam(name)) {
+        showError('nameError', 'Name contains invalid content');
+        isValid = false;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    // Email validation
+    const email = document.getElementById('email').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+        showError('emailError', 'Email is required');
+        isValid = false;
+    } else if (!emailRegex.test(email)) {
+        showError('emailError', 'Please enter a valid email address');
+        isValid = false;
+    } else if (detectSpamEmail(email)) {
+        showError('emailError', 'Email appears to be spam');
+        isValid = false;
+    }
+
+    // Phone validation
+    const phone = document.getElementById('phone').value.trim();
+    const phoneRegex = /^[\(\)\d\s\-\+]{10,}$/;
+    if (!phone) {
+        showError('phoneError', 'Phone number is required');
+        isValid = false;
+    } else if (!phoneRegex.test(phone)) {
+        showError('phoneError', 'Please enter a valid phone number');
+        isValid = false;
+    }
+
+    // Subject validation
+    const subject = document.getElementById('subject').value.trim();
+    if (!subject) {
+        showError('subjectError', 'Subject is required');
+        isValid = false;
+    } else if (subject.length < 3) {
+        showError('subjectError', 'Subject must be at least 3 characters');
+        isValid = false;
+    } else if (detectSpam(subject)) {
+        showError('subjectError', 'Subject contains invalid content');
+        isValid = false;
+    }
+
+    // Message validation
+    const message = document.getElementById('message').value.trim();
+    if (!message) {
+        showError('messageError', 'Message is required');
+        isValid = false;
+    } else if (message.length < 10) {
+        showError('messageError', 'Message must be at least 10 characters');
+        isValid = false;
+    } else if (detectSpam(message)) {
+        showError('messageError', 'Message contains suspicious content');
+        isValid = false;
+    }
+
+    // CAPTCHA validation
+    const captcha = document.getElementById('captcha').value.trim();
+    if (!captcha) {
+        showError('captchaError', 'Security check required');
+        isValid = false;
+    } else if (captcha !== '4') {
+        showError('captchaError', 'Incorrect answer. Please try again.');
+        isValid = false;
+    }
+
+    // Agreement validation
+    const agreeTerms = document.getElementById('agreeTerms').checked;
+    if (!agreeTerms) {
+        showError('agreeError', 'You must agree to be contacted');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    const inputId = elementId.replace('Error', '');
+    const inputElement = document.getElementById(inputId);
+    
+    errorElement.textContent = message;
+    if (inputElement) {
+        inputElement.classList.add('error');
     }
 }
 
-@keyframes twinkle {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.6;
-    }
+function clearAllErrors() {
+    const errorElements = document.querySelectorAll('.error-message');
+    const inputElements = document.querySelectorAll('input, textarea');
+    
+    errorElements.forEach(el => el.textContent = '');
+    inputElements.forEach(el => el.classList.remove('error'));
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+function showSuccessMessage() {
+    const successElement = document.getElementById('formSuccess');
+    successElement.textContent = '✓ Thank you! Your message has been received. We will contact you soon!';
+    successElement.classList.add('show');
+    
+    setTimeout(() => {
+        successElement.classList.remove('show');
+    }, 5000);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+// ===== SPAM DETECTION =====
+function detectSpam(text) {
+    const spamPatterns = [
+        /viagra|cialis|casino|lottery|winner|congratulations|claim.*prize/gi,
+        /click.*here|buy.*now|limited.*time|act.*now/gi,
+        /http|www|\.com|\.net|\.org/gi,
+        /\$\d+|bitcoin|crypto/gi,
+        /href=|onclick|javascript:/gi
+    ];
+
+    const specialCharCount = (text.match(/[!@#$%^&*()_\-+=\[\]{}';:"<>,.?/\\|`~]/g) || []).length;
+    if (specialCharCount > text.length * 0.3) {
+        return true;
     }
 
-    .nav-links {
-        display: none;
+    for (let pattern of spamPatterns) {
+        if (pattern.test(text)) {
+            return true;
+        }
     }
 
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .star.large {
-        font-size: 2rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding: 60px 0;
-    }
-
-    section {
-        padding: 40px 0;
-    }
-
-    .contact-container {
-        padding: 2rem 1rem;
-    }
-
-    .contact-form {
-        gap: 1rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        font-size: 16px;
-    }
-
-    .logo-image {
-        height: 50px;
-    }
+    return false;
 }
 
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.5rem;
+function detectSpamEmail(email) {
+    const spamDomains = ['tempmail', 'throwaway', '10minutemail', 'guerrillamail', 'mailinator'];
+    
+    for (let domain of spamDomains) {
+        if (email.toLowerCase().includes(domain)) {
+            return true;
+        }
     }
 
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .btn-large {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .contact-container {
-        padding: 1.5rem 1rem;
-    }
-
-    .logo-image {
-        height: 45px;
-    }
+    return false;
 }
+
+// ===== NAVIGATION & SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+// Active nav link on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section[id]');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ===== RESPONSIVE HAMBURGER MENU =====
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.style.display = 'none';
+        });
+    });
+}
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.service-card, .stat').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+});
