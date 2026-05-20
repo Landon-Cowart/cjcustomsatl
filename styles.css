@@ -28,9 +28,16 @@ body {
 }
 .top-image {
   width: 100%;
-  height: 100vh; /* full viewport height */
-  object-fit: cover; /* crop or scale to cover */
+  height: 50vh; /* or 100vh for full viewport height */
+  object-fit: cover;
   display: block;
+}
+
+/* Optional: add some media queries for better mobile responsiveness */
+@media (max-width: 768px) {
+  .top-image {
+    height: 30vh; /* reduce height on smaller screens if needed */
+  }
 }
 .container {
     max-width: 1200px;
