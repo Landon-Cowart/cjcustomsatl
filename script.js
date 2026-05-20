@@ -1,3 +1,92 @@
+// ===== GALLERY FILTERING & LIGHTBOX =====
+const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryFilters = document.querySelectorAll('.gallery-filter');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxCaption = document.querySelector('.lightbox-caption');
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+
+let currentImageIndex = 0;
+let filteredImages = [];
+
+// Gallery Filter Functionality
+galleryFilters.forEach(filter => {
+    filter.addEventListener('click', () => {
+        // Update active filter
+        galleryFilters.forEach(f => f.classList.remove('active'));
+        filter.classList.add('active');
+
+        const filterValue = filter.getAttribute('data-filter');
+
+        // Filter gallery items
+        galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.classList.remove('hidden');
+                item.style.animation = 'fadeInUp 0.6s ease forwards';
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// Lightbox functionality
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        const img = item.querySelector('.gallery-image img');
+        const title = item.querySelector('h3').textContent;
+
+        lightboxImage.src = img.src;
+        lightboxCaption.textContent = title;
+        lightbox.classList.add('active');
+
+        // Store filtered images for navigation
+        filteredImages = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+        currentImageIndex = filteredImages.indexOf(item);
+    });
+});
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightboxPrev.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+    updateLightboxImage();
+});
+
+lightboxNext.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+    updateLightboxImage();
+});
+
+function updateLightboxImage() {
+    const item = filteredImages[currentImageIndex];
+    const img = item.querySelector('.gallery-image img');
+    const title = item.querySelector('h3').textContent;
+
+    lightboxImage.src = img.src;
+    lightboxCaption.textContent = title;
+}
+
+// Close lightbox when clicking outside image
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') lightboxPrev.click();
+        if (e.key === 'ArrowRight') lightboxNext.click();
+        if (e.key === 'Escape') lightboxClose.click();
+    }
+});
+
 // ===== FORM VALIDATION & BOT PROTECTION =====
 const contactForm = document.getElementById('contactForm');
 
@@ -231,16 +320,16 @@ window.addEventListener('scroll', () => {
 
 // ===== RESPONSIVE HAMBURGER MENU =====
 const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+const navLinksMenu = document.querySelector('.nav-links');
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        navLinksMenu.style.display = navLinksMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.style.display = 'none';
+            navLinksMenu.style.display = 'none';
         });
     });
 }
@@ -259,7 +348,8 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .stat').forEach(el => {
+document.querySelectorAll('.service-card, .stat, .gallery-item, .video-item').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
 });
+    
