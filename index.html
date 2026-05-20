@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - CJcustomsATL</title>
+    <title>CJcustomsATL - Premium Headliner Installation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,12 +13,12 @@
             <div class="nav-content">
                 <div class="logo">CJcustomsATL</div>
                 <ul class="nav-links">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link">About</a></li>
-                    <li><a href="index.html#services" class="nav-link">Services</a></li>
-                    <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="index.html#videos" class="nav-link">Videos</a></li>
-                    <li><a href="index.html#location" class="nav-link">Location</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#videos" class="nav-link">Videos</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
                     <li><a href="contact.html" class="nav-link cta-link">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -30,104 +30,262 @@
         </div>
     </nav>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- Hero Section with Full Screen Logo -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="CJcustomsATL Logo" class="hero-logo-fullscreen">
+            <h1 class="hero-title">CJcustomsATL</h1>
+            <p class="hero-subtitle">Premium Vehicle Headliner Installation & Repair</p>
+            <p class="hero-description">Professional, Clean, Sleek Solutions for Your Vehicle</p>
+            <a href="#gallery" class="btn btn-primary">View Our Work</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <h1 class="contact-title">Get in Touch</h1>
-            <p class="contact-subtitle">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            <h2 class="section-title">About CJcustomsATL</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Welcome to CJcustomsATL, your premier destination for professional headliner installation and repair services in McDonough, Georgia. With expertise and a commitment to excellence, we transform your vehicle's interior with precision and style.
+                    </p>
+                    <p>
+                        Our team specializes in creating a sleek, clean look for your vehicle by expertly installing premium headliner materials. Whether you're looking to refresh your current headliner or install a custom solution, we've got you covered.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Satisfaction Guaranteed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Professional</h3>
+                            <p>Expert Installation</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Premium</h3>
+                            <p>Quality Materials</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <h3>Headliner Installation</h3>
+                    <p>Professional installation of premium headliner materials tailored to your vehicle specifications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <h3>Headliner Repair</h3>
+                    <p>Expert repair and restoration of damaged or worn headliners to restore your vehicle's pristine look.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <h3>Custom Designs</h3>
+                    <p>Create a unique interior with custom headliner designs that match your style and preferences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <h3>Material Selection</h3>
+                    <p>Premium selection of materials and colors to choose from for your perfect headliner solution.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Quick and efficient service without compromising on quality or attention to detail.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <h3>Professional Consultation</h3>
+                    <p>Expert advice and consultation to help you choose the best solution for your vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
             
-            <div class="contact-container">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            placeholder="Your full name"
-                            required
-                        >
-                        <span class="error-message" id="nameError"></span>
-                    </div>
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="gallery-filter active" data-filter="all">All Work</button>
+                <button class="gallery-filter" data-filter="installation">Installations</button>
+                <button class="gallery-filter" data-filter="repair">Repairs</button>
+                <button class="gallery-filter" data-filter="custom">Custom Work</button>
+            </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            placeholder="your.email@example.com"
-                            required
-                        >
-                        <span class="error-message" id="emailError"></span>
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Installation 1 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Installation+1" alt="Professional Headliner Installation">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
                     </div>
+                    <h3>Premium Installation</h3>
+                    <p>Clean, professional headliner installation</p>
+                </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input 
-                            type="tel" 
-                            id="phone" 
-                            name="phone" 
-                            placeholder="(123) 456-7890"
-                            required
-                        >
-                        <span class="error-message" id="phoneError"></span>
+                <!-- Installation 2 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Installation+2" alt="Luxury Interior Upgrade">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
                     </div>
+                    <h3>Luxury Interior</h3>
+                    <p>Premium material installation</p>
+                </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input 
-                            type="text" 
-                            id="subject" 
-                            name="subject" 
-                            placeholder="What is this regarding?"
-                            required
-                        >
-                        <span class="error-message" id="subjectError"></span>
+                <!-- Repair 1 -->
+                <div class="gallery-item" data-category="repair">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Repair+1" alt="Headliner Repair Service">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
                     </div>
+                    <h3>Damage Restoration</h3>
+                    <p>Expert repair and restoration</p>
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            placeholder="Tell us more about your inquiry..."
-                            rows="6"
-                            required
-                        ></textarea>
-                        <span class="error-message" id="messageError"></span>
+                <!-- Custom 1 -->
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Custom+1" alt="Custom Design Headliner">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
                     </div>
+                    <h3>Custom Design</h3>
+                    <p>Unique personalized headliner</p>
+                </div>
 
-                    <!-- CAPTCHA Protection -->
-                    <div class="form-group captcha-group">
-                        <label for="captcha">Security Check: What number comes after 3? *</label>
-                        <input 
-                            type="text" 
-                            id="captcha" 
-                            name="captcha" 
-                            placeholder="Enter the number"
-                            required
-                        >
-                        <span class="error-message" id="captchaError"></span>
+                <!-- Installation 3 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Installation+3" alt="Interior Customization">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
                     </div>
+                    <h3>Sleek Installation</h3>
+                    <p>Modern interior upgrade</p>
+                </div>
 
-                    <div class="form-group checkbox-group">
-                        <label>
-                            <input 
-                                type="checkbox" 
-                                id="agreeTerms" 
-                                name="agreeTerms" 
-                                required
-                            >
-                            I agree to be contacted by CJcustomsATL
-                        </label>
-                        <span class="error-message" id="agreeError"></span>
+                <!-- Repair 2 -->
+                <div class="gallery-item" data-category="repair">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Repair+2" alt="Professional Repair Work">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
                     </div>
+                    <h3>Professional Repair</h3>
+                    <p>Quality restoration work</p>
+                </div>
 
-                    <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-                    <span class="error-message" id="formError"></span>
-                    <span class="success-message" id="formSuccess"></span>
-                </form>
+                <!-- Custom 2 -->
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Custom+2" alt="Custom Color Headliner">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Custom Colors</h3>
+                    <p>Personalized color options</p>
+                </div>
+
+                <!-- Installation 4 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Installation+4" alt="Vehicle Interior Enhancement">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Interior Enhancement</h3>
+                    <p>Complete vehicle transformation</p>
+                </div>
+
+                <!-- Custom 3 -->
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="https://via.placeholder.com/500x500?text=Custom+3" alt="Premium Custom Work">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Premium Custom</h3>
+                    <p>Elite custom installation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">❮</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" src="" alt="">
+            <p class="lightbox-caption"></p>
+        </div>
+        <button class="lightbox-next">❯</button>
+    </div>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title">Watch Our Process</h2>
+            <div class="videos-grid">
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Installation Process" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Installation Process</h3>
+                    <p>Watch how we professionally install premium headliners with precision and care.</p>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Repair & Restoration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Repair & Restoration</h3>
+                    <p>See our expert repair techniques that restore damaged headliners to like-new condition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>McDonough, Georgia</h3>
+                    <p>Conveniently located in McDonough, GA, we're ready to serve you with professional headliner services.</p>
+                    <div class="location-details">
+                        <p><strong>Service Area:</strong> McDonough, GA and surrounding areas</p>
+                        <p><strong>Ready to transform your vehicle?</strong> Contact us today for a consultation!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
