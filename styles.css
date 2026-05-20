@@ -8,7 +8,7 @@
     --primary-color: #d4af37;
     --secondary-color: #1a1a1a;
     --text-color: #ffffff;
-    --light-text: #cccccc;
+    --light-text: #ff0000;
     --bg-color: #0a0a0a;
     --white: #ffffff;
     --error-color: #e74c3c;
@@ -64,7 +64,7 @@ body {
 }
 
 .nav-link {
-    color: var(--white);
+    color: #ff0000;
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
@@ -72,7 +72,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-color);
+    color: #ff6666;
 }
 
 .cta-link {
@@ -150,31 +150,15 @@ body {
 }
 
 .hero-title {
-    position: absolute;
-    bottom: 200px;
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    z-index: 3;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    display: none;
 }
 
 .hero-subtitle {
-    position: absolute;
-    bottom: 130px;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    z-index: 3;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    display: none;
 }
 
 .hero-description {
-    position: absolute;
-    bottom: 70px;
-    font-size: 1.1rem;
-    color: var(--light-text);
-    z-index: 3;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    display: none;
 }
 
 .hero .btn-primary {
@@ -222,7 +206,7 @@ section {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--primary-color);
+    color: #ff0000;
     position: relative;
     display: inline-block;
     width: 100%;
@@ -236,7 +220,7 @@ section {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background-color: var(--primary-color);
+    background-color: #ff0000;
     border-radius: 2px;
 }
 
@@ -254,7 +238,7 @@ section {
 
 .about-text p {
     font-size: 1.1rem;
-    color: var(--light-text);
+    color: #ff0000;
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
@@ -277,17 +261,17 @@ section {
 
 .stat:hover {
     transform: translateY(-5px);
-    border-color: var(--primary-color);
+    border-color: #ff0000;
 }
 
 .stat h3 {
-    color: var(--primary-color);
+    color: #ff0000;
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
 .stat p {
-    color: var(--light-text);
+    color: #ff0000;
 }
 
 /* ===== SERVICES SECTION ===== */
@@ -313,24 +297,24 @@ section {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
-    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
 }
 
 .service-icon {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: #ff0000;
     margin-bottom: 1rem;
 }
 
 .service-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--white);
+    color: #ff0000;
 }
 
 .service-card p {
-    color: var(--light-text);
+    color: #ff0000;
     line-height: 1.6;
 }
 
@@ -351,7 +335,7 @@ section {
     padding: 0.75rem 1.5rem;
     border: 2px solid var(--border-color);
     background-color: transparent;
-    color: var(--light-text);
+    color: #ff0000;
     cursor: pointer;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -361,9 +345,9 @@ section {
 
 .gallery-filter:hover,
 .gallery-filter.active {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border-color: var(--primary-color);
+    background-color: #ff0000;
+    color: var(--white);
+    border-color: #ff0000;
 }
 
 .gallery-grid {
@@ -388,8 +372,8 @@ section {
 
 .gallery-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
-    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
+    border-color: #ff0000;
 }
 
 .gallery-image {
@@ -437,13 +421,13 @@ section {
 .gallery-item h3 {
     padding: 1rem;
     font-size: 1.2rem;
-    color: var(--white);
+    color: #ff0000;
     margin: 0;
 }
 
 .gallery-item p {
     padding: 0 1rem 1rem;
-    color: var(--light-text);
+    color: #ff0000;
     font-size: 0.9rem;
     margin: 0;
 }
@@ -484,7 +468,7 @@ section {
 }
 
 .lightbox-caption {
-    color: var(--white);
+    color: #ff0000;
     font-size: 1.1rem;
     text-align: center;
 }
@@ -550,8 +534,8 @@ section {
 
 .video-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
-    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.3);
+    border-color: #ff0000;
 }
 
 .video-wrapper {
@@ -575,13 +559,13 @@ section {
 .video-item h3 {
     padding: 1.5rem 1.5rem 0.5rem;
     font-size: 1.3rem;
-    color: var(--white);
+    color: #ff0000;
     margin: 0;
 }
 
 .video-item p {
     padding: 0 1.5rem 1.5rem;
-    color: var(--light-text);
+    color: #ff0000;
     margin: 0;
     line-height: 1.6;
 }
@@ -596,13 +580,13 @@ section {
 .location-info h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: #ff0000;
 }
 
 .location-info p {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: var(--light-text);
+    color: #ff0000;
 }
 
 .location-details {
@@ -610,11 +594,12 @@ section {
     padding: 2rem;
     border-radius: 10px;
     margin-top: 2rem;
-    border: 1px solid var(--primary-color);
+    border: 1px solid #ff0000;
 }
 
 .location-details p {
     margin-bottom: 0.5rem;
+    color: #ff0000;
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -628,12 +613,12 @@ section {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    color: #ff0000;
 }
 
 .contact-subtitle {
     text-align: center;
-    color: var(--light-text);
+    color: #ff0000;
     margin-bottom: 3rem;
     font-size: 1.1rem;
 }
@@ -663,7 +648,7 @@ section {
 .form-group label {
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--white);
+    color: #ff0000;
 }
 
 .form-group input,
@@ -675,7 +660,7 @@ section {
     font-size: 1rem;
     transition: border-color 0.3s ease;
     background-color: #0f0f0f;
-    color: var(--white);
+    color: #ff0000;
 }
 
 .form-group input::placeholder,
@@ -686,8 +671,8 @@ section {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    border-color: #ff0000;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
 }
 
 .form-group input.error,
@@ -722,7 +707,7 @@ section {
     background-color: #0f0f0f;
     padding: 1rem;
     border-radius: 5px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid #ff0000;
 }
 
 .checkbox-group {
@@ -737,20 +722,20 @@ section {
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
-    color: var(--light-text);
+    color: #ff0000;
 }
 
 .checkbox-group input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: var(--primary-color);
+    accent-color: #ff0000;
 }
 
 /* ===== FOOTER ===== */
 .footer {
     background-color: #000000;
-    color: var(--white);
+    color: #ff0000;
     text-align: center;
     padding: 2rem 0;
     margin-top: 3rem;
@@ -818,21 +803,6 @@ section {
         object-fit: cover;
     }
 
-    .hero-title {
-        font-size: 2rem;
-        bottom: 150px;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-        bottom: 100px;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-        bottom: 50px;
-    }
-
     .section-title {
         font-size: 1.8rem;
     }
@@ -897,21 +867,6 @@ section {
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
-
-    .hero-title {
-        font-size: 1.5rem;
-        bottom: 120px;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-        bottom: 80px;
-    }
-
-    .hero-description {
-        font-size: 0.9rem;
-        bottom: 40px;
     }
 
     .section-title {
