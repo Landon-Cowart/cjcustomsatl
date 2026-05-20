@@ -26,7 +26,12 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
 }
-
+.top-image {
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  object-fit: cover; /* crop or scale to cover */
+  display: block;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
