@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJcustomsATL - Premium Headliner Customization and Installation</title>
+    <title>CJcustomsATL - Premium Headliner Installation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,13 +11,13 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <a href="#home" class="logo-link">
-                    <img src="logo.png" alt="CJcustomsATL Logo" class="logo-image">
-                </a>
+                <div class="logo">CJcustomsATL</div>
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#videos" class="nav-link">Videos</a></li>
                     <li><a href="#location" class="nav-link">Location</a></li>
                     <li><a href="contact.html" class="nav-link cta-link">Contact</a></li>
                 </ul>
@@ -33,14 +33,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="star large"></span>
-                CJcustomsATL
-                <span class="star large"></span>
-            </h1>
+            <img src="logo.png" alt="CJcustomsATL Logo" class="hero-logo">
+            <h1 class="hero-title">CJcustomsATL</h1>
             <p class="hero-subtitle">Premium Vehicle Headliner Installation & Repair</p>
             <p class="hero-description">Professional, Clean, Sleek Solutions for Your Vehicle</p>
-            <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+            <a href="#gallery" class="btn btn-primary">View Our Work</a>
         </div>
         <div class="hero-overlay"></div>
     </section>
@@ -110,6 +107,167 @@
                     <div class="service-icon">★</div>
                     <h3>Professional Consultation</h3>
                     <p>Expert advice and consultation to help you choose the best solution for your vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="gallery-filter active" data-filter="all">All Work</button>
+                <button class="gallery-filter" data-filter="installation">Installations</button>
+                <button class="gallery-filter" data-filter="repair">Repairs</button>
+                <button class="gallery-filter" data-filter="custom">Custom Work</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Installation 1 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1486262715619-3417ca6ef29f?w=500&h=500&fit=crop" alt="Professional Headliner Installation">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Premium Installation</h3>
+                    <p>Clean, professional headliner installation</p>
+                </div>
+
+                <!-- Installation 2 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=500&h=500&fit=crop" alt="Luxury Interior Upgrade">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Luxury Interior</h3>
+                    <p>Premium material installation</p>
+                </div>
+
+                <!-- Repair 1 -->
+                <div class="gallery-item" data-category="repair">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop" alt="Headliner Repair Service">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Damage Restoration</h3>
+                    <p>Expert repair and restoration</p>
+                </div>
+
+                <!-- Custom 1 -->
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1605559424843-9e4c3ca4b465?w=500&h=500&fit=crop" alt="Custom Design Headliner">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Custom Design</h3>
+                    <p>Unique personalized headliner</p>
+                </div>
+
+                <!-- Installation 3 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=500&h=500&fit=crop" alt="Interior Customization">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Sleek Installation</h3>
+                    <p>Modern interior upgrade</p>
+                </div>
+
+                <!-- Repair 2 -->
+                <div class="gallery-item" data-category="repair">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1494976866105-d83ec505046d?w=500&h=500&fit=crop" alt="Professional Repair Work">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Professional Repair</h3>
+                    <p>Quality restoration work</p>
+                </div>
+
+                <!-- Custom 2 -->
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1595578774223-ef52624120d2?w=500&h=500&fit=crop" alt="Custom Color Headliner">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Custom Colors</h3>
+                    <p>Personalized color options</p>
+                </div>
+
+                <!-- Installation 4 -->
+                <div class="gallery-item" data-category="installation">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1502933691298-84fc14542831?w=500&h=500&fit=crop" alt="Vehicle Interior Enhancement">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Interior Enhancement</h3>
+                    <p>Complete vehicle transformation</p>
+                </div>
+
+                <!-- Custom 3 -->
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=500&h=500&fit=crop" alt="Premium Custom Work">
+                        <div class="gallery-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <h3>Premium Custom</h3>
+                    <p>Elite custom installation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">❮</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" src="" alt="">
+            <p class="lightbox-caption"></p>
+        </div>
+        <button class="lightbox-next">❯</button>
+    </div>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title">Watch Our Process</h2>
+            <div class="videos-grid">
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Installation Process" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Installation Process</h3>
+                    <p>Watch how we professionally install premium headliners with precision and care.</p>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Repair & Restoration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3>Repair & Restoration</h3>
+                    <p>See our expert repair techniques that restore damaged headliners to like-new condition.</p>
                 </div>
             </div>
         </div>
