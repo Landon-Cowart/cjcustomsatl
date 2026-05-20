@@ -1,3 +1,87 @@
+// ===== GALLERY FILTERING & LIGHTBOX =====
+const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryFilters = document.querySelectorAll('.gallery-filter');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxCaption = document.querySelector('.lightbox-caption');
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+
+let currentImageIndex = 0;
+let filteredImages = [];
+
+// Gallery Filter Functionality
+galleryFilters.forEach(filter => {
+    filter.addEventListener('click', () => {
+        galleryFilters.forEach(f => f.classList.remove('active'));
+        filter.classList.add('active');
+
+        const filterValue = filter.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.classList.remove('hidden');
+                item.style.animation = 'fadeInUp 0.6s ease forwards';
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// Lightbox functionality
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        const img = item.querySelector('.gallery-image img');
+        const title = item.querySelector('h3').textContent;
+
+        lightboxImage.src = img.src;
+        lightboxCaption.textContent = title;
+        lightbox.classList.add('active');
+
+        filteredImages = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+        currentImageIndex = filteredImages.indexOf(item);
+    });
+});
+
+lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightboxPrev.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+    updateLightboxImage();
+});
+
+lightboxNext.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+    updateLightboxImage();
+});
+
+function updateLightboxImage() {
+    const item = filteredImages[currentImageIndex];
+    const img = item.querySelector('.gallery-image img');
+    const title = item.querySelector('h3').textContent;
+
+    lightboxImage.src = img.src;
+    lightboxCaption.textContent = title;
+}
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') lightboxPrev.click();
+        if (e.key === 'ArrowRight') lightboxNext.click();
+        if (e.key === 'Escape') lightboxClose.click();
+    }
+});
+
 // ===== FORM VALIDATION & BOT PROTECTION =====
 const contactForm = document.getElementById('contactForm');
 
@@ -10,17 +94,9 @@ if (contactForm) {
             contactForm.reset();
             
             console.log('Form submitted successfully!');
-            console.log({
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            });
         }
     });
 
-    // Auto-format phone number
     document.getElementById('phone').addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         if (value.length > 0) {
@@ -39,84 +115,47 @@ function validateForm() {
     let isValid = true;
     clearAllErrors();
 
-    // Name validation
     const name = document.getElementById('name').value.trim();
-    if (!name) {
-        showError('nameError', 'Name is required');
-        isValid = false;
-    } else if (name.length < 2) {
-        showError('nameError', 'Name must be at least 2 characters');
-        isValid = false;
-    } else if (detectSpam(name)) {
-        showError('nameError', 'Name contains invalid content');
+    if (!name || name.length < 2 || detectSpam(name)) {
+        showError('nameError', 'Valid name required');
         isValid = false;
     }
 
-    // Email validation
     const email = document.getElementById('email').value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) {
-        showError('emailError', 'Email is required');
-        isValid = false;
-    } else if (!emailRegex.test(email)) {
-        showError('emailError', 'Please enter a valid email address');
-        isValid = false;
-    } else if (detectSpamEmail(email)) {
-        showError('emailError', 'Email appears to be spam');
+    if (!email || !emailRegex.test(email) || detectSpamEmail(email)) {
+        showError('emailError', 'Valid email required');
         isValid = false;
     }
 
-    // Phone validation
     const phone = document.getElementById('phone').value.trim();
     const phoneRegex = /^[\(\)\d\s\-\+]{10,}$/;
-    if (!phone) {
-        showError('phoneError', 'Phone number is required');
-        isValid = false;
-    } else if (!phoneRegex.test(phone)) {
-        showError('phoneError', 'Please enter a valid phone number');
+    if (!phone || !phoneRegex.test(phone)) {
+        showError('phoneError', 'Valid phone required');
         isValid = false;
     }
 
-    // Subject validation
     const subject = document.getElementById('subject').value.trim();
-    if (!subject) {
-        showError('subjectError', 'Subject is required');
-        isValid = false;
-    } else if (subject.length < 3) {
-        showError('subjectError', 'Subject must be at least 3 characters');
-        isValid = false;
-    } else if (detectSpam(subject)) {
-        showError('subjectError', 'Subject contains invalid content');
+    if (!subject || subject.length < 3 || detectSpam(subject)) {
+        showError('subjectError', 'Valid subject required');
         isValid = false;
     }
 
-    // Message validation
     const message = document.getElementById('message').value.trim();
-    if (!message) {
-        showError('messageError', 'Message is required');
-        isValid = false;
-    } else if (message.length < 10) {
-        showError('messageError', 'Message must be at least 10 characters');
-        isValid = false;
-    } else if (detectSpam(message)) {
-        showError('messageError', 'Message contains suspicious content');
+    if (!message || message.length < 10 || detectSpam(message)) {
+        showError('messageError', 'Valid message required');
         isValid = false;
     }
 
-    // CAPTCHA validation
     const captcha = document.getElementById('captcha').value.trim();
-    if (!captcha) {
-        showError('captchaError', 'Security check required');
-        isValid = false;
-    } else if (captcha !== '4') {
-        showError('captchaError', 'Incorrect answer. Please try again.');
+    if (captcha !== '4') {
+        showError('captchaError', 'Incorrect answer');
         isValid = false;
     }
 
-    // Agreement validation
     const agreeTerms = document.getElementById('agreeTerms').checked;
     if (!agreeTerms) {
-        showError('agreeError', 'You must agree to be contacted');
+        showError('agreeError', 'You must agree');
         isValid = false;
     }
 
@@ -135,16 +174,13 @@ function showError(elementId, message) {
 }
 
 function clearAllErrors() {
-    const errorElements = document.querySelectorAll('.error-message');
-    const inputElements = document.querySelectorAll('input, textarea');
-    
-    errorElements.forEach(el => el.textContent = '');
-    inputElements.forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+    document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
 }
 
 function showSuccessMessage() {
     const successElement = document.getElementById('formSuccess');
-    successElement.textContent = '✓ Thank you! Your message has been received. We will contact you soon!';
+    successElement.textContent = '✓ Thank you! Your message has been received.';
     successElement.classList.add('show');
     
     setTimeout(() => {
@@ -152,40 +188,22 @@ function showSuccessMessage() {
     }, 5000);
 }
 
-// ===== SPAM DETECTION =====
 function detectSpam(text) {
     const spamPatterns = [
-        /viagra|cialis|casino|lottery|winner|congratulations|claim.*prize/gi,
-        /click.*here|buy.*now|limited.*time|act.*now/gi,
-        /http|www|\.com|\.net|\.org/gi,
-        /\$\d+|bitcoin|crypto/gi,
+        /viagra|cialis|casino|lottery|winner/gi,
+        /http|www|bitcoin/gi,
         /href=|onclick|javascript:/gi
     ];
 
-    const specialCharCount = (text.match(/[!@#$%^&*()_\-+=\[\]{}';:"<>,.?/\\|`~]/g) || []).length;
-    if (specialCharCount > text.length * 0.3) {
-        return true;
-    }
-
     for (let pattern of spamPatterns) {
-        if (pattern.test(text)) {
-            return true;
-        }
+        if (pattern.test(text)) return true;
     }
-
     return false;
 }
 
 function detectSpamEmail(email) {
-    const spamDomains = ['tempmail', 'throwaway', '10minutemail', 'guerrillamail', 'mailinator'];
-    
-    for (let domain of spamDomains) {
-        if (email.toLowerCase().includes(domain)) {
-            return true;
-        }
-    }
-
-    return false;
+    const spamDomains = ['tempmail', 'throwaway', '10minutemail'];
+    return spamDomains.some(domain => email.toLowerCase().includes(domain));
 }
 
 // ===== NAVIGATION & SMOOTH SCROLL =====
@@ -195,35 +213,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (href !== '#') {
             e.preventDefault();
             const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section[id]');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// ===== RESPONSIVE HAMBURGER MENU =====
+// ===== HAMBURGER MENU =====
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -239,7 +234,7 @@ if (hamburger) {
     });
 }
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -253,7 +248,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .stat').forEach(el => {
+document.querySelectorAll('.service-card, .stat, .gallery-item, .video-item').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
 });
