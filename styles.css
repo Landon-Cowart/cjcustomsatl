@@ -1,16 +1,13 @@
-/* Force all text to red with high specificity */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #FF0000 !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Your existing styles below */
 :root {
     --primary-color: #d4af37;
     --secondary-color: #1a1a1a;
-    --text-color: #FF0000;
+    --text-color: #ffffff;
     --light-text: #cccccc;
     --bg-color: #0a0a0a;
     --white: #ffffff;
@@ -26,40 +23,10 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    /* Remove this line or comment it out, since * overrides */
-    /* color: var(--text-color); */
+    color: var(--text-color);
     background-color: var(--bg-color);
 }
 
-/* Your existing CSS continues here... */
-.header-image {
-  width: 100%;
-  height: 50vh; /* or 100vh for full height */
-  object-fit: cover;
-  display: block;
-  margin: 0;
-}
-.top-image {
-  width: 100%;
-  height: 50vh; /* or 100vh for full viewport height */
-  object-fit: cover;
-  display: block;
-}
-
-/* ... rest of your CSS ... */
-.top-image {
-  width: 100%;
-  height: 50vh; /* or 100vh for full viewport height */
-  object-fit: cover;
-  display: block;
-}
-
-/* Optional: add some media queries for better mobile responsiveness */
-@media (max-width: 768px) {
-  .top-image {
-    height: 30vh; /* reduce height on smaller screens if needed */
-  }
-}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -135,11 +102,15 @@ body {
     transition: 0.3s;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION - FULL SCREEN ===== */
 .hero {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #0f0f0f 100%);
     color: var(--white);
-    padding: 120px 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -160,13 +131,17 @@ body {
     position: relative;
     z-index: 2;
     animation: fadeInUp 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-logo {
-    height: 150px;
+.hero-logo-fullscreen {
+    height: 300px;
     width: auto;
     object-fit: contain;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     animation: twinkle 2s ease-in-out infinite;
 }
 
@@ -389,7 +364,7 @@ section {
 }
 
 .gallery-item.hidden {
-    display: none;
+    display: none !important;
 }
 
 .gallery-item:hover {
@@ -814,16 +789,20 @@ section {
         display: none;
     }
 
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-logo-fullscreen {
+        height: 200px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
 
     .hero-subtitle {
         font-size: 1.3rem;
-    }
-
-    .hero-logo {
-        height: 100px;
     }
 
     .section-title {
@@ -861,10 +840,6 @@ section {
         gap: 2rem;
     }
 
-    .hero {
-        padding: 60px 0;
-    }
-
     section {
         padding: 40px 0;
     }
@@ -890,12 +865,12 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.5rem;
+    .hero-logo-fullscreen {
+        height: 150px;
     }
 
-    .hero-logo {
-        height: 80px;
+    .hero-title {
+        font-size: 1.5rem;
     }
 
     .section-title {

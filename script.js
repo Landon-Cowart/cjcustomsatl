@@ -22,9 +22,13 @@ galleryFilters.forEach(filter => {
         galleryItems.forEach(item => {
             if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                 item.classList.remove('hidden');
-                item.style.animation = 'fadeInUp 0.6s ease forwards';
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.style.animation = 'fadeInUp 0.6s ease forwards';
+                }, 10);
             } else {
                 item.classList.add('hidden');
+                item.style.display = 'none';
             }
         });
     });
@@ -33,15 +37,17 @@ galleryFilters.forEach(filter => {
 // Lightbox functionality
 galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => {
-        const img = item.querySelector('.gallery-image img');
-        const title = item.querySelector('h3').textContent;
+        if (!item.classList.contains('hidden')) {
+            const img = item.querySelector('.gallery-image img');
+            const title = item.querySelector('h3').textContent;
 
-        lightboxImage.src = img.src;
-        lightboxCaption.textContent = title;
-        lightbox.classList.add('active');
+            lightboxImage.src = img.src;
+            lightboxCaption.textContent = title;
+            lightbox.classList.add('active');
 
-        filteredImages = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
-        currentImageIndex = filteredImages.indexOf(item);
+            filteredImages = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+            currentImageIndex = filteredImages.indexOf(item);
+        }
     });
 });
 
@@ -50,13 +56,17 @@ lightboxClose.addEventListener('click', () => {
 });
 
 lightboxPrev.addEventListener('click', () => {
-    currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
-    updateLightboxImage();
+    if (filteredImages.length > 0) {
+        currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+        updateLightboxImage();
+    }
 });
 
 lightboxNext.addEventListener('click', () => {
-    currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
-    updateLightboxImage();
+    if (filteredImages.length > 0) {
+        currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+        updateLightboxImage();
+    }
 });
 
 function updateLightboxImage() {
