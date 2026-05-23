@@ -18,9 +18,11 @@
 
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 body {
+    min-height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
@@ -107,7 +109,8 @@ body {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #0f0f0f 100%);
     color: var(--white);
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,9 +146,12 @@ body {
 }
 
 .hero-logo-fullscreen {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     animation: twinkle 2s ease-in-out infinite;
 }
 
